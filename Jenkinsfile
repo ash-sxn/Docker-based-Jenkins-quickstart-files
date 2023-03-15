@@ -1,27 +1,30 @@
 pipeline {
-    agent any
-    stages {
-        stage('Checkout') {
-            steps {
-                // Replace with your repository URL
-                git 'https://github.com/ash-sxn/Docker-based-Jenkins-quickstart-files.git'
-            }
-        }
-        stage('Build and run containers') {
-            steps {
-                sh 'docker-compose up -d'
-            }
-        }
-        stage('Check containers') {
-            steps {
-                sh 'docker ps | grep jenkins-blueocean'
-                sh 'docker ps | grep jenkins-docker'
-            }
-        }
+  agent any
+  stages {
+    stage('Checkout') {
+      steps {
+        git 'https://github.com/ash-sxn/Docker-based-Jenkins-quickstart-files.git'
+      }
     }
-    post {
-        always {
-            sh 'docker-compose down'
-        }
+
+    stage('Build and run containers') {
+      steps {
+        sh 'docker-compose up -d'
+      }
     }
+
+    stage('Check containers') {
+      steps {
+        sh 'docker ps | grep jenkins-blueocean'
+        sh 'docker ps | grep jenkins-docker'
+      }
+    }
+
+  }
+  post {
+    always {
+      sh 'docker-compose down'
+    }
+
+  }
 }
