@@ -18,7 +18,7 @@ services:
     command: --storage-driver=overlay2
     #restart: always  #read on the internet that this will substitute  --rm command in 2nd step of 3rd section but didn't work on my testing
   jenkins-blueocean: # Creating a container by following setp 5 of the website
-    image: myjenkins-blueocean:2.387.1-1
+    build: . 
     restart: on-failure
     container_name: jenkins-blueocean
     networks: 

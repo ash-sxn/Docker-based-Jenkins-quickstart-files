@@ -9,7 +9,7 @@ pipeline {
 
     stage('Build and run containers') {
       steps {
-        sh 'docker build -t myjenkins-blueocean:2.387.1-1 . && docker compose up -d'
+        sh 'docker compose up -d'
       }
     }
 
