@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/ash-sxn/Docker-based-Jenkins-quickstart-files.git'
+        git(url: 'https://github.com/ash-sxn/Docker-based-Jenkins-quickstart-files.git', branch: 'main')
       }
     }
 
