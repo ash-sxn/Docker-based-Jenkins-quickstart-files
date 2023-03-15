@@ -20,13 +20,6 @@ pipeline {
       }
     }
 
-    stage('Remove the containers') {
-      steps {
-        sh 'docker compose down'
-      }
-    }
-
-  }
   post {
     always {
       sh 'docker compose down'
