@@ -15,12 +15,14 @@ pipeline {
 
     stage('check') {
       steps {
-        sh '''if ! docker ps | grep jenkins-docker; then
-    echo "jenkins-docker container not running"
+        sh '''if  docker ps | grep jenkins-docker; then
+    echo "jenkins-docker container running"
+else
     exit 1
 fi
-if ! docker ps | grep jenkins-blueocean; then
-    echo "jenkins-blueocean container not running"
+if  docker ps | grep jenkins-blueocean; then
+    echo "jenkins-blueocean container running"
+else
     exit 1
 fi'''
       }
