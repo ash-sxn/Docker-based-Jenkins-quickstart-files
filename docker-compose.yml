@@ -2,7 +2,7 @@ version: '3'
 services:
   jenkins-docker: # Creating a container by following step 3 of the website
     image: docker:dind
-    container_name: jenkins-dockerr
+    container_name: jenkins-docke
     ports:
       - 2375:2376
     privileged: true
@@ -19,8 +19,9 @@ services:
     #restart: always  #read on the internet that this will substitute  --rm command in 2nd step of 3rd section but didn't work on my testing
   jenkins-blueocean: # Creating a container by following setp 5 of the website
     build: . #with docker file given on website
+    image: jenkins-blueoceann:1.0
     restart: on-failure
-    container_name: jenkins-blueoceann
+    container_name: jenkins-blueocea
     networks: 
       - jenkins
     environment:
