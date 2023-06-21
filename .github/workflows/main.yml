@@ -1,2 +1,8 @@
-- name: Epic issues for GitHub
-  uses: cloudaper/epics-action@v1.1.6
+name: Example workflow
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Epic issues for GitHub
+      uses: cloudaper/epics-action@v1.1.6
