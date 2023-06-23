@@ -1,10 +1,11 @@
+#this is the one I created for proposal which mimics the step from docker section of the jenkins docker page
 version: '3'
 services:
   jenkins-docker: # Creating a container by following step 3 of the website
     image: docker:dind
     container_name: jenkins-docker
     ports:
-      - 2375:2376
+      - 2376:2376
     privileged: true
     networks:
       jenkins:
@@ -17,9 +18,8 @@ services:
       - jenkins-data:/var/jenkins_home
     command: --storage-driver=overlay2
     #restart: always  #read on the internet that this will substitute  --rm command in 2nd step of 3rd section but didn't work on my testing
-  jenkins-blueocean: # Creating a container by following setp 5 of the website
+  jenkins-blueocean: # Creating a container by following step 5 of the website
     build: . #with docker file given on website
-    image: jenkins-blueoceann:1.0
     restart: on-failure
     container_name: jenkins-blueocean
     networks: 
